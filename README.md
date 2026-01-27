@@ -7,6 +7,10 @@ eine kleine Datenbank mit Liedern und Playlists anlegt.
 
 <br>
 
+Programm, mit dem man in die erzeugte Datenbankdatei reinschauen kann: 
+[DB Browser for SQLite](https://sqlitebrowser.org/)
+
+<br>
 
 ----
 

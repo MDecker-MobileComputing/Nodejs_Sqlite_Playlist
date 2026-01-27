@@ -10,8 +10,12 @@ db.serialize(() => {
         titel TEXT,
         interpret TEXT
       ) 
-      `
-    );
+      `);
+    
+
+    const preparedStmt = db.prepare( "INSERT INTO lied(titel,interpret) VALUES (?,?)" );
+    preparedStmt.run( "Enter Sandman", "Metallica" );
+    preparedStmt.run( "Back in Black", "AC/DC" );
 
     /*
     const stmt = db.prepare("INSERT INTO lorem VALUES (?)");
