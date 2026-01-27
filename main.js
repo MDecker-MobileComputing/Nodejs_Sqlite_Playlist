@@ -1,5 +1,5 @@
 import sqlite3 from "sqlite3";
-import { open } from "sqlite";;
+import { open } from "sqlite";
 
 // create filename for db seconds since the epoche
 const timestamp   = Math.floor( Date.now() / 1000 );
