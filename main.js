@@ -15,7 +15,8 @@ await db.exec(
     `CREATE TABLE lieder (
         lied_id   INTEGER PRIMARY KEY AUTOINCREMENT,
         titel     TEXT,
-        interpret TEXT
+        interpret TEXT,
+        UNIQUE (titel, interpret)
     )`
 );
 
@@ -38,7 +39,7 @@ ergebnisArray1.forEach( (zeile) => {
 await db.exec(
     `CREATE TABLE playlists (
         playlist_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name        TEXT
+        name        TEXT UNIQUE
     )`
 );
 
@@ -53,6 +54,7 @@ await db.exec(
         id          INTEGER PRIMARY KEY AUTOINCREMENT,
         lied_id     INTEGER,
         playlist_id INTEGER,
+        UNIQUE ( lied_id, playlist_id ),
         FOREIGN KEY ( lied_id     ) REFERENCES lieder(    lied_id     ),
         FOREIGN KEY ( playlist_id ) REFERENCES playlists( playlist_id )
     )`
