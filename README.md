@@ -2,12 +2,12 @@
 
 <br>
 
-Diese Repo enthält ein Nodejs-Programm, dass mit dem [SQLite3-Wrapper](https://www.npmjs.com/package/sqlite3)
+Diese Repo enthält ein Nodejs-Programm, das mit dem [SQLite3-Wrapper](https://www.npmjs.com/package/sqlite3)
 eine kleine Datenbank mit Liedern und Playlists anlegt.
 
 <br>
 
-Programm, mit dem man in die erzeugte Datenbankdatei reinschauen kann: 
+Programm, mit dem man in die erzeugte Datenbankdatei reinschauen kann:
 [DB Browser for SQLite](https://sqlitebrowser.org/)
 
 <br>

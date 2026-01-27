@@ -1,34 +1,30 @@
-const sqlite3 = require( "sqlite3").verbose();
+import sqlite3 from "sqlite3";
+import { open } from "sqlite";;
 
-//const db = new sqlite3.Database( "playlists.db" );
-const db = new sqlite3.Database( ":memory:" );
 
-db.serialize(() => {
+//const db = await open({ filename: "Playlist.db", driver: sqlite3.Database });
+const db = await open({ filename: ":memory:", driver: sqlite3.Database });
 
-    db.run(
-      `CREATE TABLE lied (
-        lied_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        titel TEXT,
+sqlite3.verbose();
+
+await db.exec(
+      `CREATE TABLE lieder (
+        lied_id   INTEGER PRIMARY KEY AUTOINCREMENT,
+        titel     TEXT,
         interpret TEXT
-      ) 
-      `);
-    
+      )`
+);
 
-    const preparedStmt = db.prepare( "INSERT INTO lied(titel,interpret) VALUES (?,?)" );
-    preparedStmt.run( "Enter Sandman", "Metallica" );
-    preparedStmt.run( "Back in Black", "AC/DC" );
-    preparedStmt.finalize();
-
-    db.each( "SELECT titel, interpret FROM lied ORDER by titel", (err, zeile) => {
-
-      console.log( `Lied "${zeile.titel}" von "${zeile.interpret}".`);
-    });
-
-    /*
+await db.exec(`
+  INSERT INTO lieder (titel, interpret) VALUES
+    ("Enter Sandman", "Metallica"    ),
+    ("Back in Black", "AC/DC"        ),
+    ("Crazy Train"  , "Ozzy Osbourne")
+`);
 
 
-    db.each("SELECT rowid AS id, info FROM lorem", (err, row) => {
-        console.log(row.id + ": " + row.info);
-    });
-    */
+const ergebnisArray = await db.all("SELECT titel, interpret FROM lieder ORDER by titel");
+ergebnisArray.forEach( (zeile) => {
+
+    console.log( `Lied "${zeile.titel}" von "${zeile.interpret}".`);
 });
