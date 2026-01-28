@@ -77,7 +77,6 @@ const ergebnisArray2 =
           FROM lieder, playlists, song2playlist
           WHERE song2playlist.lied_id     == lieder.lied_id
             AND song2playlist.playlist_id == playlists.playlist_id;
-
       `
      );
 ergebnisArray2.forEach( (zeile) => {
