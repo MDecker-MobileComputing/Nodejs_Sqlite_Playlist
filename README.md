@@ -12,6 +12,11 @@ Programm, mit dem man in die erzeugte Datenbankdatei reinschauen kann:
 
 <br>
 
+Die Grundidee des Programms in diesem Repo stammt
+[von diesem Beispiel](https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2024-quellcodes/tree/main/Beispiele/Musikdatenbank)
+
+<br>
+
 ----
 
 ## License ##
